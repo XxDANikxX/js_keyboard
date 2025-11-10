@@ -1,4 +1,5 @@
 
+// Добавление клавиш на клавиатуру
 function keys(){
     let div = document.body.getElementsByClassName('keyboard')
     let row_number = 0    
@@ -249,7 +250,7 @@ function keys(){
 
 }
 
-// Ховер для клавишь "при наводке меняется цвет"
+// Ховер для клавиш "при наводке меняется цвет"
 function hover() {
     for (let i = 1; i < 83; i++) {
         let hover = document.getElementById(`key${i}`)
@@ -304,6 +305,7 @@ function hover() {
     }
 }
 
+// Функция при нажатии клавиш
 function press() {
 
     for (let i = 1; i < 83; i++) {
@@ -337,6 +339,7 @@ function press() {
     }
 }
 
+// Функция при нажатии на backspace
 function backspace() {
     let field = document.querySelector('.text')
     let backspace = document.querySelector('#key28')
@@ -350,6 +353,7 @@ function backspace() {
     })
 }
 
+// Функция при нажатии на shift (Для двух)
 function shift() {
     
     for (let i = 1; i < 83; i++) {
