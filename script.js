@@ -1,8 +1,8 @@
 
 // Добавление клавиш на клавиатуру
-function keys(){
+function keys(language = 'english'){
     let div = document.body.getElementsByClassName('keyboard')
-    let row_number = 0    
+    let row_number = 0  
 
     for (let i = 0; i < div.length; i++) {
         innerHtml = ''
@@ -63,40 +63,27 @@ function keys(){
 
         name.forEach(element =>{
             key_number += 1
-            
-            if (key_number !== 28) {
-                second[i].innerHTML += `<div id="key${key_number}" style="
+            let  width = 65
 
-                width:65px; 
-                height:100%; 
-                border: 1px solid black; 
-                display:flex;
-                margin-left:1px; 
-                align-items:center; 
-                justify-content: center;
-                border-radius:5px; 
-                background: #acacac; 
-                color:black;
-                box-shadow: 2px 2px 2px 2px black
-
-                ">${element}</div>`  
+            if (key_number == 28) {
+                width = 140
             }
-            else{
-                second[i].innerHTML += `<div id="key${key_number}" style="
 
-                width:140px; 
-                height:100%; 
-                border: 1px solid black; 
-                display:flex;margin-left:1px; 
-                align-items:center; 
-                justify-content: center;
-                border-radius:5px;
-                background: #acacac; 
-                color:black;
-                box-shadow: 2px 2px 2px 2px black
+            second[i].innerHTML += `<div id="key${key_number}" style="
 
-                ">${element}</div>`  
-            }   
+            width:${width}px; 
+            height:100%; 
+            border: 1px solid black; 
+            display:flex;margin-left:1px; 
+            align-items:center; 
+            justify-content: center;
+            border-radius:5px;
+            background: #acacac; 
+            color:black;
+            box-shadow: 2px 2px 2px 2px black
+
+            ">${element}</div>`  
+
 
         })
             
@@ -104,75 +91,151 @@ function keys(){
 
     let third = document.body.getElementsByClassName('row3')
 
-    for (let i = 0; i < third.length; i++) {   
-        const name = ['Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[{', ']}', '|', 'PgUp'] 
+    for (let i = 0; i < third.length; i++) {
 
-        name.forEach(element => {
-            
-            key_number += 1
-            let width = 65
 
-            if (key_number === 30){
-                width = 100
-            }
-            if(key_number === 43){
-                width = 100
-            }
+        if (language == 'english'){
+            const name = ['Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[{', ']}', '|', 'PgUp'] 
 
-            third[i].innerHTML += `<div id="key${key_number}" style="
+            name.forEach(element => {
+                
+                key_number += 1
+                let width = 65
 
-            width:${width}px; 
-            height:100%; 
-            border: 1px solid black;
-            margin-left:1px; 
-            display:flex; 
-            align-items:center; 
-            justify-content: center;
-            border-radius:5px; 
-            background: #8a8a8a; 
-            color: black;
-            box-shadow: 2px 2px 2px 2px black
+                if (key_number === 30){
+                    width = 100
+                }
+                if(key_number === 43){
+                    width = 100
+                }
 
-            ">${element}</div>` 
+                third[i].innerHTML += `<div id="key${key_number}" style="
 
-        })     
+                width:${width}px; 
+                height:100%; 
+                border: 1px solid black;
+                margin-left:1px; 
+                display:flex; 
+                align-items:center; 
+                justify-content: center;
+                border-radius:5px; 
+                background: #8a8a8a; 
+                color: black;
+                box-shadow: 2px 2px 2px 2px black
+
+                ">${element}</div>` 
+        
+            })
+        }
+        
+        if (language == "russian"){
+
+            const name = ['Tab', 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ', '|', 'PgUp'] 
+
+            name.forEach(element => {
+                
+                key_number += 1
+                let width = 65
+
+                if (key_number === 30){
+                    width = 100
+                }
+                if(key_number === 43){
+                    width = 100
+                }
+
+                third[i].innerHTML += `<div id="key${key_number}" style="
+
+                width:${width}px; 
+                height:100%; 
+                border: 1px solid black;
+                margin-left:1px; 
+                display:flex; 
+                align-items:center; 
+                justify-content: center;
+                border-radius:5px; 
+                background: #8a8a8a; 
+                color: black;
+                box-shadow: 2px 2px 2px 2px black
+
+                ">${element}</div>` 
+
+            })
+        }
 
     }
     let fourth = document.body.getElementsByClassName('row4');
 
     for (let i = 0; i < fourth.length; i++) {
 
-        const name = ['Caps', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', '; :', '"', 'Enter', 'PgDn']
+        if (language == "english"){
+            const name = ['Caps', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', '; :', '"', 'Enter', 'PgDn']
+            
+            name.forEach(element =>{
+                key_number += 1
+                let width = 65
+
+
+                if (key_number === 45){
+                    width = 130
+                } 
+                if (key_number === 57){
+                    width = 160
+                }
+
+                fourth[i].innerHTML += `<div id="key${key_number}" style="
+
+                width:${width}px; 
+                height:100%; 
+                border: 1px solid black; 
+                display:flex; 
+                align-items:center; 
+                justify-content: center;
+                margin-left:0px;
+                border-radius:5px; 
+                background: #696969; 
+                color:black;
+                box-shadow: 2px 2px 2px 2px black
+
+                ">${element}</div>`
+
+            })
+        }
         
-        name.forEach(element =>{
-            key_number += 1
-            let width = 65
+        if (language == 'russian'){
+
+            const name = ['Caps', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', 'Enter', 'PgDn']
+            
+            name.forEach(element =>{
+                key_number += 1
+                let width = 65
 
 
-            if (key_number === 45){
-                width = 130
-            } 
-            if (key_number === 57){
-                width = 160
-            }
+                if (key_number === 45){
+                    width = 130
+                } 
+                if (key_number === 57){
+                    width = 160
+                }
 
-            fourth[i].innerHTML += `<div id="key${key_number}" style="
+                fourth[i].innerHTML += `<div id="key${key_number}" style="
 
-            width:${width}px; 
-            height:100%; 
-            border: 1px solid black; 
-            display:flex; 
-            align-items:center; 
-            justify-content: center;
-            margin-left:0px;
-            border-radius:5px; 
-            background: #696969; 
-            color:black;
-            box-shadow: 2px 2px 2px 2px black
+                width:${width}px; 
+                height:100%; 
+                border: 1px solid black; 
+                display:flex; 
+                align-items:center; 
+                justify-content: center;
+                margin-left:0px;
+                border-radius:5px; 
+                background: #696969; 
+                color:black;
+                box-shadow: 2px 2px 2px 2px black
 
-            ">${element}</div>`
+                ">${element}</div>`
 
-        })   
+            })
+        }
 
     }
 
@@ -180,44 +243,81 @@ function keys(){
 
     for (let i = 0; i < fifth.length; i++) {
 
+        if (language == "english"){
         const name = ['↑Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ', <', '. >', '/ ?', '↑Shift', '↑', 'End']
 
-        name.forEach(element =>{
+            name.forEach(element =>{
 
-            key_number += 1
-            let width = 65
+                key_number += 1
+                let width = 65
 
-            if (key_number === 59){
-                width = 150
-            } 
-            if (key_number === 70){
-                width = 130
-            }
+                if (key_number === 59){
+                    width = 150
+                } 
+                if (key_number === 70){
+                    width = 130
+                }
 
-            fifth[i].innerHTML += `<div id="key${key_number}" style="
+                fifth[i].innerHTML += `<div id="key${key_number}" style="
 
-            width:${width}px;
-            height:100%;
-            border: 1px solid black; 
-            margin-left:1px; 
-            display:flex; 
-            align-items:center; 
-            justify-content: center;
-            border-radius:5px; 
-            background: #444444;
-            color:white;
-            box-shadow: 2px 2px 2px 2px black
+                width:${width}px;
+                height:100%;
+                border: 1px solid black; 
+                margin-left:1px; 
+                display:flex; 
+                align-items:center; 
+                justify-content: center;
+                border-radius:5px; 
+                background: #444444;
+                color:white;
+                box-shadow: 2px 2px 2px 2px black
 
-            ">${element}</div>`
+                ">${element}</div>`
 
-        })
+            })
+        }
+
+        if (language == 'russian'){
+
+            const name = ['↑Shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', '. ,', '↑Shift', '↑', 'End']
+
+            name.forEach(element =>{
+
+                key_number += 1
+                let width = 65
+
+                if (key_number === 59){
+                    width = 150
+                } 
+                if (key_number === 70){
+                    width = 130
+                }
+
+                fifth[i].innerHTML += `<div id="key${key_number}" style="
+
+                width:${width}px;
+                height:100%;
+                border: 1px solid black; 
+                margin-left:1px; 
+                display:flex; 
+                align-items:center; 
+                justify-content: center;
+                border-radius:5px; 
+                background: #444444;
+                color:white;
+                box-shadow: 2px 2px 2px 2px black
+
+                ">${element}</div>`
+
+            })
+        }
             
     }
 
     let six = document.body.getElementsByClassName('row6')
 
     for (let i = 0; i < six.length; i++) {
-        let innerHtml = ''
+        
         const name = ["Crtl", 'Win','Alt', '______', 'Alt', 'Fn', 'Ctrl', '←', '↓', '→']
 
         name.forEach(element => {
@@ -247,6 +347,7 @@ function keys(){
         })
 
     }
+    
 
 }
 
@@ -306,38 +407,74 @@ function hover() {
 }
 
 // Функция при нажатии клавиш
-function press() {
+function press(language = 'english') {
 
-    for (let i = 1; i < 83; i++) {
+    if (language == 'english'){
+        
+        for (let i = 1; i < 83; i++) {
 
-        shift_on_off = false
-        let input = document.querySelector('.text')
-        let pressed_keys = document.querySelector(`#key${i}`)
+            shift_on_off = false
+            let input = document.querySelector('.text')
+            let pressed_keys = document.querySelector(`#key${i}`)
+            
+            pressed_keys.addEventListener('click', (event)=>{
+                if (!shift_on_off){
+                    let name = ['','','', '', '', '', '', '', '', '', '', '', '', '', '','`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '', '','', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '|', '', '', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '"', '', '','', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '', '', '', "", '','', ' ', '', '', '', '', '', '' ]
+                    
+                    for (let c = 1; c < name.length; c++) {
 
+                        if (c == i){
+                            input.value += name[c]
+                            event.target.style.backgroundColor = 'white'
+                            event.target.style.color = 'black'
+                            sound()
 
-        pressed_keys.addEventListener('click', (event)=>{
-            if (!shift_on_off){
-                let name = ['','','', '', '', '', '', '', '', '', '', '', '', '', '','`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '', '','', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '|', '', '', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '"', '', '','', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '', '', '', "", '','', ' ', '', '', '', '', '', '' ]
-                
-                for (let c = 1; c < name.length; c++) {
-
-                    if (c == i){
-                        input.value += name[c]
-                        event.target.style.backgroundColor = 'white'
-                        event.target.style.color = 'black'
+                        }
+                        // delete button
+                        if (i == 14){
+                            input.value = ''
+                        }
 
                     }
-                    // delete button
-                    if (i == 14){
-                        input.value = ''
-                    }
-
                 }
-            }
-        })         
+            })         
 
+        }
+    }
+    if (language == 'russian'){
+        
+        for (let i = 1; i < 83; i++) {
+
+            shift_on_off = false
+            let input = document.querySelector('.text')
+            let pressed_keys = document.querySelector(`#key${i}`)
+            
+            pressed_keys.addEventListener('click', (event)=>{
+                if (!shift_on_off){
+                    let name = ['','','', '', '', '', '', '', '', '', '', '', '', '', '','`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '', '','', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '|', '', '', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', '', '','', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.', '', '', '', "", '','', ' ', '', '', '', '', '', '' ]
+                    
+                    for (let c = 1; c < name.length; c++) {
+
+                        if (c == i){
+                            input.value += name[c]
+                            event.target.style.backgroundColor = 'white'
+                            event.target.style.color = 'black'
+                            sound()
+
+                        }
+                        // delete button
+                        if (i == 14){
+                            input.value = ''
+                        }
+
+                    }
+                }
+            })         
+
+        }
     }
 }
+
 
 // Функция при нажатии на backspace
 function backspace() {
@@ -354,63 +491,157 @@ function backspace() {
 }
 
 // Функция при нажатии на shift (Для двух)
-function shift() {
-    
-    for (let i = 1; i < 83; i++) {
+function shift(language = 'english') {
 
+    if (language == 'english'){
+        for (let i = 1; i < 83; i++) {
+
+            shift_on_off = false
+            let input = document.querySelector('.text')
+            let pressed_keys = document.querySelector(`#key${i}`)
+            let shift = ['','','', '', '', '', '', '', '', '', '', '', '', '', '','~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '', '','', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', '', '', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', '', '','', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', '', '', '', "", '','', ' ', '', '', '', '', '', '']
+            
+            const upper_case2 = document.getElementById('key70')
+
+            upper_case2.addEventListener('click', () =>{
+                shift_on_off = true
+            })
+            
+            pressed_keys.addEventListener('click', (event) =>{
+                if (shift_on_off) {
+                    for (let x = 1; x < shift.length; x++) {
+                        if (x == i){    
+
+                            input.value += shift[x]
+                            event.target.style.backgroundColor = 'white'
+                            event.target.style.color = 'black'
+                            shift_on_off = false
+                            
+                        }
+                        if (i == 75){
+                            change_language('english')
+                            break
+                        }
+                    }
+                }
+
+            })
+        
+            const upper_case1 = document.getElementById('key59')
+
+            upper_case1.addEventListener('click', () =>{
+                shift_on_off = true
+            })
+
+            pressed_keys.addEventListener('click', (event) =>{
+                if (shift_on_off) {
+                    for (let x = 1; x < shift.length; x++) {
+                        if (x == i){
+                            
+                            input.value += shift[x]
+                            event.target.style.backgroundColor = 'white'
+                            event.target.style.color = 'black'
+                            shift_on_off = false
+                        
+                        }
+                    }
+                }
+            })
+        }
+
+    }
+    if (language == 'russian'){
+
+        for (let i = 1; i < 83; i++) {
+
+            shift_on_off = false
+            let input = document.querySelector('.text')
+            let pressed_keys = document.querySelector(`#key${i}`)
+            let shift = ['','','', '', '', '', '', '', '', '', '', '', '', '', '','~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '', '','', 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ', '|', '', '', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', '', '','', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', ',', '', '', '', "", '','', ' ', '', '', '', '', '', '']
+            const upper_case2 = document.getElementById('key70')
+
+            upper_case2.addEventListener('click', () =>{
+                shift_on_off = true
+            })
+            
+            pressed_keys.addEventListener('click', (event) =>{
+                if (shift_on_off) {
+                    for (let x = 1; x < shift.length; x++) {
+                        if (x == i){    
+
+                            input.value += shift[x]
+                            event.target.style.backgroundColor = 'white'
+                            event.target.style.color = 'black'
+                            shift_on_off = false
+                            
+                        }
+                        if (i == 75){
+                            change_language('russian')
+                            break
+                        }
+                    }
+                }
+
+            })
+        
+            const upper_case1 = document.getElementById('key59')
+
+            upper_case1.addEventListener('click', () =>{
+                shift_on_off = true
+            })
+
+            pressed_keys.addEventListener('click', (event) =>{
+                if (shift_on_off) {
+                    for (let x = 1; x < shift.length; x++) {
+                        if (x == i){
+                            
+                            input.value += shift[x]
+                            event.target.style.backgroundColor = 'white'
+                            event.target.style.color = 'black'
+                            shift_on_off = false
+                        
+                        }
+                    }
+                }
+            })
+        }
+    }
+}
+
+// Звуки клавиатуры
+function sound() {
+    let key_sound = new Audio('media/key_sound.mp3')
+    key_sound.play()
+}
+
+// Смена языка
+function change_language(language = 'english') {
+    
+    console.log(language);
+    
+    if (shift_on_off && language == 'english'){
+        keys("russian")
+        press('russian')
+        hover()
+        shift('russian')
+        backspace()
+        language = 'russian'
         shift_on_off = false
-        let input = document.querySelector('.text')
-        let pressed_keys = document.querySelector(`#key${i}`)
-        let shift = ['','','', '', '', '', '', '', '', '', '', '', '', '', '','~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '', '','', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', '', '', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', '', '','', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', '', '', '', "", '','', ' ', '', '', '', '', '', '']
         
-        const upper_case2 = document.getElementById('key70')
-
-        upper_case2.addEventListener('click', () =>{
-            shift_on_off = true
-        })
         
-        pressed_keys.addEventListener('click', (event) =>{
-            if (shift_on_off) {
-                for (let x = 1; x < shift.length; x++) {
-                    if (x == i){    
+    }
 
-                        input.value += shift[x]
-                        event.target.style.backgroundColor = 'white'
-                        event.target.style.color = 'black'
-                        shift_on_off = false
-                        
-                    }
-                }
-            }
-
-        })
-    
-        const upper_case1 = document.getElementById('key59')
-
-        upper_case1.addEventListener('click', () =>{
-            shift_on_off = true
-        })
-
-        pressed_keys.addEventListener('click', (event) =>{
-            if (shift_on_off) {
-                for (let x = 1; x < shift.length; x++) {
-                    if (x == i){
-                        
-                        input.value += shift[x]
-                        event.target.style.backgroundColor = 'white'
-                        event.target.style.color = 'black'
-                        shift_on_off = false
-                    
-                    }
-                }
-            }
-        })
+    if (shift_on_off && language == 'russian'){
+        keys("english")
+        press('english')
+        hover()
+        shift('english')
+        backspace()
+        language = 'english'
+        shift_on_off = false
     }
 
 }
-
-
-
 
 
 keys()
@@ -418,3 +649,4 @@ hover()
 press()
 backspace()
 shift()
+change_language()
